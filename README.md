@@ -4,6 +4,9 @@ A in-File JSON-Cache for storing Guzzle HTTP Responses from REST-APIs
 ## Installation
 
 WIP
+```
+    composer require bookking3000/guzzcache
+```
 
 ## Usage
 
@@ -22,7 +25,7 @@ WIP
 
 ## Debug
 
-Setting Debug to true, will log all Responses. By Default only Response with non 2xx Status-Codes are logged.
+Setting Debug to true, will log all Requests. By Default only Requests with non 2xx Response Status-Codes are logged.
 
 The Log is stored in the logs-Folder in the Library-Directory itself.
 
