@@ -22,7 +22,7 @@ WIP
 
 ## Debug
 
-Setting Debug to true, will log all Responses. By Default only Response with non 2xx Status-Codes are logged.
+Setting Debug to true, will log all Requests. By Default only Requests with non 2xx Response Status-Codes are logged.
 
 The Log is stored in the logs-Folder in the Library-Directory itself.
 
