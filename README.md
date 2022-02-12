@@ -4,6 +4,9 @@ A in-File JSON-Cache for storing Guzzle HTTP Responses from REST-APIs
 ## Installation
 
 WIP
+```
+    composer require bookking3000/guzzcache
+```
 
 ## Usage
 
