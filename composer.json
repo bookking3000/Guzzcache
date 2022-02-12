@@ -1,0 +1,22 @@
+{
+    "name": "bookking3000/guzzcache",
+    "description": "A in-File JSON-Cache for storing Guzzle HTTP Responses from REST-APIs",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "7.0",
+        "maxakawizard/json-collection-parser": "^1.8",
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "MIT License",
+    "autoload": {
+        "psr-4": {
+            "Bookking3000\\Guzzcache\\": "src/bookking3000/GuzzCache"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tom B. / bookking3000",
+            "email": "tom@ixtomix.codes"
+        }
+    ]
+}

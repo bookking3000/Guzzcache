@@ -1,0 +1,6 @@
+.idea
+test/cache
+logs
+vendor
+*.cache
+*.lock
