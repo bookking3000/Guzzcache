@@ -1,8 +1,8 @@
 <?php
 
 
-use bookking3000\GuzzCache\FileSystem\JsonCache;
-use bookking3000\GuzzCache\GuzzCache;
+use bookking3000\Guzzcache\FileSystem\JsonCache;
+use bookking3000\Guzzcache\GuzzCache;
 use PHPUnit\Framework\TestCase;
 
 require_once __DIR__ . '/../autoload.php';

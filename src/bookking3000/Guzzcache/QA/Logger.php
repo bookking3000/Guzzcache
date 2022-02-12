@@ -1,9 +1,9 @@
 <?php
 
-namespace bookking3000\GuzzCache\QA;
+namespace bookking3000\Guzzcache\QA;
 
-use bookking3000\GuzzCache\FileSystem\File;
-use bookking3000\GuzzCache\GuzzCache;
+use bookking3000\Guzzcache\FileSystem\File;
+use bookking3000\Guzzcache\GuzzCache;
 
 class Logger
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace bookking3000\GuzzCache\FileSystem;
+namespace bookking3000\Guzzcache\FileSystem;
 
-use bookking3000\GuzzCache\QA\Logger;
+use bookking3000\Guzzcache\QA\Logger;
 use Exception;
 use JsonCollectionParser\Parser;
 

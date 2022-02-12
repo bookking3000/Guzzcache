@@ -10,7 +10,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Bookking3000\\Guzzcache\\": "src/bookking3000/GuzzCache"
+            "Bookking3000\\Guzzcache\\": "src/bookking3000/Guzzcache"
         }
     },
     "authors": [

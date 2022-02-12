@@ -1,6 +1,6 @@
 <?php
 
-namespace bookking3000\GuzzCache\FileSystem;
+namespace bookking3000\Guzzcache\FileSystem;
 
 class File
 {

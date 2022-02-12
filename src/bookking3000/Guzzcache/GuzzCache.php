@@ -1,9 +1,9 @@
 <?php
 
-namespace bookking3000\GuzzCache;
+namespace bookking3000\Guzzcache;
 
-use bookking3000\GuzzCache\FileSystem\InFileCache;
-use bookking3000\GuzzCache\QA\Logger;
+use bookking3000\Guzzcache\FileSystem\InFileCache;
+use bookking3000\Guzzcache\QA\Logger;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
