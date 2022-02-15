@@ -21,7 +21,27 @@ Install using composer:
     $guzzCache->setCache($jsonCache);
 
     //If your request was already sent, this method will retrieve it from the local in-File Cache
-    $content = $guzzCache->httpQuery("https://jsonplaceholder.typicode.com/todos/$i", "GET");
+    $content = $guzzCache->httpQuery("https://jsonplaceholder.typicode.com/todos/1", "GET");
+```
+
+## Lifetime
+
+Default Lifetime is 30 days / 2592000 Seconds.
+
+You can change it as follows:
+
+```
+    $jsonCache = new JsonCache();
+    $jsonCache->setCachePath($this->cachePath);
+    $jsonCache->setLifetime(60); //60 Seconds
+```
+
+To disable Lifetime, set Lifetime to 0.
+
+```
+    $jsonCache = new JsonCache();
+    $jsonCache->setCachePath($this->cachePath);
+    $jsonCache->setLifetime(0);
 ```
 
 ## Debug
@@ -34,3 +54,9 @@ The Log is stored in the logs-Folder in the Library-Directory itself.
     $guzzCache = new GuzzCache();
     $guzzCache->setDebug(true);
 ```
+
+# Changelog
+
+## 2022-02-15
+
+- Added Expiry-Time to Cache

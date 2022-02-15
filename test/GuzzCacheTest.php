@@ -35,10 +35,11 @@ class GuzzCacheTest extends TestCase
     {
         $jsonCache = new JsonCache();
         $jsonCache->setCachePath($this->cachePath);
+        $jsonCache->setLifetime(0);
 
         $guzzCache = new GuzzCache();
         $guzzCache->setCache($jsonCache);
-        $guzzCache->setDebug(true);
+        $guzzCache->setDebug(false);
 
         for ($i = 1; $i <= 35; $i++) {
             $content = $guzzCache->httpQuery("https://jsonplaceholder.typicode.com/todos/$i", "GET");

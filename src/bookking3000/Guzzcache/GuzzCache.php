@@ -22,7 +22,12 @@ class GuzzCache
         $cacheKey = $this->getHashKey($uri, $method, $options);
 
         if (isset($this->cache) && $this->cache->hasKey($cacheKey)) {
-            return $this->cache->read($cacheKey);
+            if ($this->cache->isExpired($cacheKey)) {
+                Logger::writeLog('Lifetime expired for ' . $cacheKey);
+                $this->cache->delete($cacheKey);
+            } else {
+                return $this->cache->readResponse($cacheKey);
+            }
         }
 
         $client = new Client();

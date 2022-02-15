@@ -5,7 +5,8 @@
     "require": {
         "guzzlehttp/guzzle": "^7.0",
         "maxakawizard/json-collection-parser": "^1.8",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "ext-json": "*"
     },
     "license": "MIT",
     "autoload": {

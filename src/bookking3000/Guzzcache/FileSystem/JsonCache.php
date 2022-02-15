@@ -11,23 +11,19 @@ class JsonCache implements InFileCache
 
     const KEY = 'key';
     const RESPONSE = 'response';
+    const EXPIRY_TIME = 'expiry_date_time';
 
     protected string $cachePath = "";
     protected array $content = [];
     protected int $count = 0;
+    protected int $lifetime = 2592000; //30 Days (30*24*60*60)
 
-    /**
-     * @param string $cachePath
-     */
     public function __construct(string $cachePath = "")
     {
         if (strlen($cachePath) != 0)
             $this->setCachePath($cachePath);
     }
 
-    /**
-     * @param string $cachePath
-     */
     public function setCachePath(string $cachePath): void
     {
         $this->cachePath = $cachePath;
@@ -38,6 +34,34 @@ class JsonCache implements InFileCache
         }
 
         $this->initialize();
+    }
+
+    public function setLifetime(int $lifetime): void
+    {
+        $this->lifetime = $lifetime;
+    }
+
+    public function getExpiryTime($key): int
+    {
+        if (!$this->hasKey($key))
+            throw new \LogicException("Key: $key does not exist");
+
+        $aryKey = array_search($key, array_column($this->content, self::KEY));
+        return $this->content[$aryKey][self::EXPIRY_TIME];
+    }
+
+    public function isExpired(string $key): bool
+    {
+        $currentTime = time();
+        $expiryTime = $this->getExpiryTime($key);
+
+        if ($expiryTime == 0)
+            return false;
+
+        if ($currentTime > $expiryTime)
+            return true;
+
+        return false;
     }
 
     public function initialize()
@@ -69,7 +93,7 @@ class JsonCache implements InFileCache
         return false;
     }
 
-    public function read(string $key)
+    public function readResponse(string $key)
     {
         if (!$this->hasKey($key))
             throw new \LogicException("Key: $key does not exist");
@@ -84,8 +108,9 @@ class JsonCache implements InFileCache
             throw new \LogicException("Key: $key does already exist");
 
         $this->content[] = [
-            'key' => $key,
-            'response' => preg_replace('/\s+/S', " ", $content),
+            self::KEY => $key,
+            self::RESPONSE => preg_replace('/\s+/S', " ", $content),
+            self::EXPIRY_TIME => ($this->lifetime != 0) ? (time() + $this->lifetime) : 0,
         ];
 
         $this->save();
@@ -110,10 +135,9 @@ class JsonCache implements InFileCache
 
     protected function save()
     {
-        $jsonEncoded = json_encode(array_values($this->content),JSON_PRETTY_PRINT);
+        $jsonEncoded = json_encode(array_values($this->content), JSON_PRETTY_PRINT);
         file_put_contents($this->cachePath, $jsonEncoded);
         $this->initialize();
     }
-
 
 }
