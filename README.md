@@ -9,6 +9,14 @@ Install using composer:
     composer require bookking3000/guzzcache
 ```
 
+## Autoloading
+
+Please include the following to autoload Classes
+
+```
+    require_once __DIR__.'/vendor/bookking3000/guzzcache/autoload.php';
+```
+
 ## Usage
 
 ```
